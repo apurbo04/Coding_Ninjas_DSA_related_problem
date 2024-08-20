@@ -1,0 +1,38 @@
+/************************************************************
+
+    Following is the Binary Tree node structure
+
+    template <typename T>
+    class BinaryTreeNode
+    {
+        public :
+        T data;
+        BinaryTreeNode<T> *left;
+        BinaryTreeNode<T> *right;
+
+        BinaryTreeNode(T data)
+        {
+            this -> data = data;
+            left = NULL;
+            right = NULL;
+        }
+    };
+
+************************************************************/
+
+bool isNodePresent(BinaryTreeNode<int> *root, int x) {
+    if(root == NULL) return false;
+    int check = 0;
+    queue<BinaryTreeNode<int> *>q;
+    q.push(root);
+    while(!q.empty())
+    {
+        BinaryTreeNode<int> * f =q.front();
+        q.pop();
+        if(f->data==x) check+=1;
+        if(f->left) q.push(f->left);
+        if(f->right) q.push(f->right);
+    }
+    if(check>0) return true;
+    else return false;
+}
