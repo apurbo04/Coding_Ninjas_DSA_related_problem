@@ -21,7 +21,7 @@
 
 bool isSpecialBinaryTree(BinaryTreeNode<int> *root) {
   if (root->left == NULL && root->right == NULL)
-  return true;
+    return true;
   if (root->left == NULL || root->right == NULL)
     return false;
   bool l = isSpecialBinaryTree(root->left);
